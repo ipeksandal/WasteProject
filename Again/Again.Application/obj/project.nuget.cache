@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aSo4ZZnqPuaAlGi/pPcS9pWPRqu+jUc6OzWtDNJlsOiBqZtQMN3pl1HVR1Ox844Bo34JzqlNP38VvpUA1QN2XA==",
+  "dgSpecHash": "gCiiAtjJ8oPExf/4BlBF7aw0GBI5HtVeGTF9ugLp2BMp/LGqI98p0L/HecuYdKwx3NwjAwgSQ0LMesOGUsPvsg==",
   "success": true,
-  "projectFilePath": "/Users/ipek/RiderProjects/Again/Again.Application/Again.Application.csproj",
+  "projectFilePath": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Application/Again.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

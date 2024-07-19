@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ipek/RiderProjects/Again/Again.Domain/Again.Domain.csproj": {}
+    "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/Again.Domain.csproj": {}
   },
   "projects": {
-    "/Users/ipek/RiderProjects/Again/Again.Domain/Again.Domain.csproj": {
+    "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/Again.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ipek/RiderProjects/Again/Again.Domain/Again.Domain.csproj",
+        "projectUniqueName": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/Again.Domain.csproj",
         "projectName": "Again.Domain",
-        "projectPath": "/Users/ipek/RiderProjects/Again/Again.Domain/Again.Domain.csproj",
+        "projectPath": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/Again.Domain.csproj",
         "packagesPath": "/Users/ipek/.nuget/packages/",
-        "outputPath": "/Users/ipek/RiderProjects/Again/Again.Domain/obj/",
+        "outputPath": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ipek/.nuget/NuGet/NuGet.Config"

@@ -1,11 +1,33 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "Again.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Again.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Again.Domain.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Again.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Again.Domain/Again.Domain.csproj",
+      "msbuildProject": "../Again.Domain/Again.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "Again.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/ipek/.nuget/packages/": {}
@@ -13,11 +35,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ipek/RiderProjects/Again/Again.Application/Again.Application.csproj",
+      "projectUniqueName": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Application/Again.Application.csproj",
       "projectName": "Again.Application",
-      "projectPath": "/Users/ipek/RiderProjects/Again/Again.Application/Again.Application.csproj",
+      "projectPath": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Application/Again.Application.csproj",
       "packagesPath": "/Users/ipek/.nuget/packages/",
-      "outputPath": "/Users/ipek/RiderProjects/Again/Again.Application/obj/",
+      "outputPath": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ipek/.nuget/NuGet/NuGet.Config"
@@ -31,7 +53,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/Again.Domain.csproj": {
+              "projectPath": "/Users/ipek/Desktop/StripeIntegrationProject/WasteProject/Again/Again.Domain/Again.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
