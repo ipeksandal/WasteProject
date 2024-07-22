@@ -1,7 +1,142 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<div class="container">
+    <header>
+        <button class="login-button">Giriş Yap</button>
+        <button class="register-button">Kayıt Ol</button>
+    </header>
 
-<h1>Hello, world!</h1>
+    <main>
+        <section class="info-cards">
+            <div class="info-card card-green">
+                <h3>Kağıt Geri Dönüşümü</h3>
+                <p>Kağıt ürünlerin geri dönüştürülmesi, ağaç kesimini azaltır ve enerji tasarrufu sağlar.</p>
+            </div>
+            <div class="info-card card-blue">
+                <h3>Plastik Geri Dönüşümü</h3>
+                <p>Plastik atıkların geri dönüştürülmesi çevre kirliliğini azaltır ve kaynak tasarrufu sağlar.</p>
+            </div>
+            <div class="info-card card-yellow">
+                <h3>Cam Geri Dönüşümü</h3>
+                <p>Cam şişeler ve kavanozlar geri dönüştürülerek yeni cam ürünler elde edilir.</p>
+            </div>
+            <div class="info-card card-orange">
+                <h3>Metal Geri Dönüşümü</h3>
+                <p>Metal atıkların geri dönüştürülmesi enerji tasarrufu sağlar ve çevre kirliliğini azaltır.</p>
+            </div>
+        </section>
 
-Welcome to your new app.
+        <!-- Harita Kısmı -->
+        <section class="map-section">
+            <h2>Geri Dönüşüm Noktaları</h2>
+            <div id="map"></div>
+        </section>
+    </main>
+</div>
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background: #f0f0f0; /* Arka plan rengi */
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background: #ffffff; /* Başlık arka plan rengi */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-button, .register-button {
+        padding: 10px 20px;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login-button {
+        background-color: #4CAF50; /* Yeşil renk */
+    }
+
+    .register-button {
+        background-color: #4CAF50; /* Yeşil renk */
+    }
+
+    .info-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .info-card {
+        width: 250px;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        text-align: center;
+    }
+
+    .card-green {
+        background-color: #81c784; /* Soft yeşil */
+    }
+
+    .card-blue {
+        background-color: #64b5f6; /* Soft mavi */
+    }
+
+    .card-yellow {
+        background-color: #fdd835; /* Soft sarı */
+    }
+
+    .card-orange {
+        background-color: #ffb74d; /* Soft turuncu */
+    }
+
+    .map-section {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-section h2 {
+        margin-bottom: 20px;
+    }
+
+    #map {
+        width: 100%;
+        height: 400px; /* Harita yüksekliği */
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+<!-- Google Maps API script -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+<script>
+    function initMap() {
+        var mapOptions = {
+            center: { lat: 37.7749, lng: -122.4194 }, // Haritanın merkez koordinatları
+            zoom: 12,
+            mapTypeId: 'roadmap'
+        };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+</script>
