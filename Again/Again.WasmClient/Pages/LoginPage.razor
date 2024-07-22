@@ -1,0 +1,47 @@
+@page "/login"
+
+<div class="container">
+    <iframe src="https://my.spline.design/robotinteractiveevents-c9e392958c7774b733e197e34cd5adcb/" frameborder="0"></iframe>
+    <div class="login-form trash-bin">
+        <h2>Login</h2>
+        <input type="text" placeholder="Kullanıcı Adı" @bind="username" />
+        <input type="password" placeholder="Şifre" @bind="password" />
+        <div class="remember-me">
+            <input type="checkbox" id="rememberMe" @bind="rememberMe" />
+            <label for="rememberMe">Beni Hatırla</label>
+        </div>
+        <button @onclick="Login">Giriş Yap</button>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <p style="color: red;">@errorMessage</p>
+        }
+    </div>
+</div>
+
+@code {
+    private string username;
+    private string password;
+    private bool rememberMe;
+    private string errorMessage;
+
+    private void Login()
+    {
+        try
+        {
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            {
+                Console.WriteLine($"Kullanıcı Adı: {username}, Şifre: {password}, Beni Hatırla: {rememberMe}");
+                // Kullanıcı doğrulama işlemleri burada gerçekleştirilecek.
+                errorMessage = ""; // Başarılı girişte hata mesajını temizle.
+            }
+            else
+            {
+                errorMessage = "Kullanıcı adı ve şifre gerekli.";
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Bir hata oluştu: {ex.Message}";
+        }
+    }
+}
