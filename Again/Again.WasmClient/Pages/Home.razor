@@ -6,7 +6,7 @@
 <div class="container">
     <header>
         <button class="login-button" @onclick="NavigateToLogin">Giriş Yap</button>
-        <button class="register-button">Kayıt Ol</button>
+        <button class="register-button" @onclick="NavigateToRegister">Kayıt Ol</button>
     </header>
 
     <main>
@@ -167,5 +167,10 @@
     private void NavigateToLogin()
     {
         NavigationManager.NavigateTo("/login");
+    }
+
+    private void NavigateToRegister()
+    {
+        NavigationManager.NavigateTo("/register");
     }
 }
