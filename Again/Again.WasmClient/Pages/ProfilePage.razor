@@ -1,142 +1,63 @@
 @page "/profile"
 
 <div class="profile-container">
-    <div class="profile-header">
-        <img src="https://via.placeholder.com/150" alt="Profil Fotoğrafı" class="profile-photo">
-        <h2>@userName</h2>
+    <div class="profile-card">
+        <h2>Profil Bilgileri</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" class="form-control" placeholder="Kullanıcı Adınızı Girin">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Email Adresinizi Girin">
+            </div>
+            <div class="form-group">
+                <label for="bio">Biyografi</label>
+                <textarea id="bio" class="form-control" placeholder="Kısa bir biyografi girin"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="save-button">Bilgileri Güncelle</button>
+            </div>
+        </form>
     </div>
-    <div class="profile-details">
-        <div class="profile-item">
-            <label>Kullanıcı Adı:</label>
-            <span>@userName</span>
-        </div>
-        <div class="profile-item">
-            <label>Email:</label>
-            <span>@userEmail</span>
-        </div>
-        <div class="profile-item">
-            <label>Telefon:</label>
-            <span>@userPhone</span>
-        </div>
-        <div class="profile-item">
-            <label>Biyografi:</label>
-            <span>@userBio</span>
-        </div>
-        <button @onclick="EditProfile" class="edit-button">Düzenle</button>
-    </div>
-
-    @if (isEditing)
-    {
-        <div class="edit-form">
-            <h3>Profili Düzenle</h3>
-            <div class="form-group">
-                <label for="edit-username">Kullanıcı Adı</label>
-                <input type="text" id="edit-username" class="form-control" @bind="editUserName">
-            </div>
-            <div class="form-group">
-                <label for="edit-email">Email</label>
-                <input type="email" id="edit-email" class="form-control" @bind="editUserEmail">
-            </div>
-            <div class="form-group">
-                <label for="edit-phone">Telefon</label>
-                <input type="text" id="edit-phone" class="form-control" @bind="editUserPhone">
-            </div>
-            <div class="form-group">
-                <label for="edit-bio">Biyografi</label>
-                <textarea id="edit-bio" class="form-control" @bind="editUserBio"></textarea>
-            </div>
-            <button @onclick="SaveProfile" class="save-button">Kaydet</button>
-            <button @onclick="CancelEdit" class="cancel-button">İptal</button>
-        </div>
-    }
 </div>
 
-@code {
-    private string userName = "Kullanıcı Adı";
-    private string userEmail = "kullanici@example.com";
-    private string userPhone = "123-456-7890";
-    private string userBio = "Kısa biyografi metni...";
-    
-    private bool isEditing = false;
-    private string editUserName;
-    private string editUserEmail;
-    private string editUserPhone;
-    private string editUserBio;
-
-    private void EditProfile()
-    {
-        isEditing = true;
-        editUserName = userName;
-        editUserEmail = userEmail;
-        editUserPhone = userPhone;
-        editUserBio = userBio;
-    }
-
-    private void SaveProfile()
-    {
-        userName = editUserName;
-        userEmail = editUserEmail;
-        userPhone = editUserPhone;
-        userBio = editUserBio;
-        isEditing = false;
-    }
-
-    private void CancelEdit()
-    {
-        isEditing = false;
-    }
-}
+<iframe src="https://my.spline.design/your-background-url/" frameborder="0" class="background-animation"></iframe>
 
 <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        background-color: #f0f4f8; /* Soft light background */
+    }
+
     .profile-container {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 20px;
+        height: 100vh;
+        position: relative;
+        z-index: 1;
     }
 
-    .profile-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .profile-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 400px;
+        border: 2px solid #d0e4f1; /* Soft blue border */
+    }
+
+    .profile-card h2 {
         margin-bottom: 20px;
-    }
-
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-    }
-
-    .profile-details {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .profile-item {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-    }
-
-    .edit-button {
-        background-color: #007BFF;
-        color: white;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .edit-button:hover {
-        background-color: #0056b3;
-    }
-
-    .edit-form {
-        width: 100%;
-        max-width: 500px;
-        margin-top: 20px;
+        text-align: center;
+        color: #2a4d69; /* Soft blue text color */
     }
 
     .form-group {
@@ -146,34 +67,39 @@
     .form-control {
         width: 100%;
         padding: 10px;
+        margin-top: 5px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-control:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.8);
     }
 
     .save-button {
-        background-color: #28a745;
-        color: white;
-        border: none;
+        width: 100%;
         padding: 10px;
+        background-color: #4CAF50; /* Soft green button */
+        border: none;
+        color: white;
+        font-size: 16px;
         border-radius: 5px;
         cursor: pointer;
     }
 
     .save-button:hover {
-        background-color: #218838;
+        background-color: #45a049;
     }
 
-    .cancel-button {
-        background-color: #dc3545;
-        color: white;
+    .background-animation {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-left: 10px;
-    }
-
-    .cancel-button:hover {
-        background-color: #c82333;
+        z-index: 0;
     }
 </style>
