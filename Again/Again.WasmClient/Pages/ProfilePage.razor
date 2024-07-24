@@ -2,24 +2,42 @@
 
 <div class="profile-container">
     <div class="profile-card">
-        <h2>Profil Bilgileri</h2>
-        <form>
-            <div class="form-group">
-                <label for="username">Kullanıcı Adı</label>
-                <input type="text" id="username" class="form-control" placeholder="Kullanıcı Adınızı Girin">
+        @if (!isEditing)
+        {
+            <div class="profile-view">
+                <h2>Profil Bilgileri</h2>
+                <div class="profile-info">
+                    <p><strong>Kullanıcı Adı:</strong> <span>@username</span></p>
+                    <p><strong>Email:</strong> <span>@email</span></p>
+                    <p><strong>Biyografi:</strong> <span>@bio</span></p>
+                </div>
+                <button @onclick="ToggleEditMode" class="edit-button">Düzenle</button>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" placeholder="Email Adresinizi Girin">
+        }
+        else
+        {
+            <div class="profile-edit">
+                <h2>Profil Düzenle</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Kullanıcı Adı</label>
+                        <input type="text" id="username" class="form-control" @bind="@username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" @bind="@email">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Biyografi</label>
+                        <textarea id="bio" class="form-control" @bind="@bio"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="save-button">Bilgileri Güncelle</button>
+                    </div>
+                </form>
+                <button @onclick="ToggleEditMode" class="cancel-button">İptal</button>
             </div>
-            <div class="form-group">
-                <label for="bio">Biyografi</label>
-                <textarea id="bio" class="form-control" placeholder="Kısa bir biyografi girin"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="save-button">Bilgileri Güncelle</button>
-            </div>
-        </form>
+        }
     </div>
 </div>
 
@@ -58,6 +76,26 @@
         margin-bottom: 20px;
         text-align: center;
         color: #2a4d69; /* Soft blue text color */
+    }
+
+    .profile-info p {
+        margin: 10px 0;
+    }
+
+    .edit-button, .cancel-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50; /* Soft green button */
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .edit-button:hover, .cancel-button:hover {
+        background-color: #45a049;
     }
 
     .form-group {
@@ -103,3 +141,15 @@
         z-index: 0;
     }
 </style>
+
+@code {
+    private bool isEditing = false;
+    private string username = "Kullanıcı Adı";
+    private string email = "email@example.com";
+    private string bio = "Kısa bir biyografi";
+
+    private void ToggleEditMode()
+    {
+        isEditing = !isEditing;
+    }
+}
