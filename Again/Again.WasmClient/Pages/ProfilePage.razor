@@ -41,6 +41,16 @@
     </div>
 </div>
 
+<div class="recycling-info">
+    <h2>Dönüştürdüğünüz Atıklar</h2>
+    <ul>
+        <li>Kağıt: @paperRecycled kg</li>
+        <li>Plastik: @plasticRecycled kg</li>
+        <li>Cam: @glassRecycled kg</li>
+        <li>Metal: @metalRecycled kg</li>
+    </ul>
+</div>
+
 <iframe src="https://my.spline.design/your-background-url/" frameborder="0" class="background-animation"></iframe>
 
 <style>
@@ -56,19 +66,21 @@
 
     .profile-container {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        position: relative;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
         z-index: 1;
     }
 
     .profile-card {
         background: rgba(255, 255, 255, 0.9);
-        padding: 40px;
+        padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 400px;
+        width: 300px;
         border: 2px solid #d0e4f1; /* Soft blue border */
     }
 
@@ -140,6 +152,35 @@
         border: none;
         z-index: 0;
     }
+
+    .recycling-info {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        border: 2px solid #d0e4f1; /* Soft blue border */
+        z-index: 1;
+    }
+
+    .recycling-info h2 {
+        margin-bottom: 20px;
+        text-align: center;
+        color: #2a4d69; /* Soft blue text color */
+    }
+
+    .recycling-info ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .recycling-info li {
+        margin: 10px 0;
+        color: #2a4d69; /* Soft blue text color */
+    }
 </style>
 
 @code {
@@ -147,6 +188,11 @@
     private string username = "Kullanıcı Adı";
     private string email = "email@example.com";
     private string bio = "Kısa bir biyografi";
+
+    private int paperRecycled = 500;  // Örnek veri
+    private int plasticRecycled = 300;  // Örnek veri
+    private int glassRecycled = 200;  // Örnek veri
+    private int metalRecycled = 100;  // Örnek veri
 
     private void ToggleEditMode()
     {
