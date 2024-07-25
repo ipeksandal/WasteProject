@@ -5,8 +5,11 @@
 
 <div class="container">
     <header>
-        <button class="login-button" @onclick="NavigateToLogin">Giriş Yap</button>
-        <button class="register-button" @onclick="NavigateToRegister">Kayıt Ol</button>
+        <div class="left-buttons">
+            <button class="login-button" @onclick="NavigateToLogin">Giriş Yap</button>
+            <button class="register-button" @onclick="NavigateToRegister">Kayıt Ol</button>
+        </div>
+        <button class="profile-button" @onclick="NavigateToProfile">Profil</button>
     </header>
 
     <main>
@@ -56,12 +59,18 @@
     header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 20px;
         background: #ffffff; /* Başlık arka plan rengi */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .login-button, .register-button {
+    .left-buttons {
+        display: flex;
+        gap: 10px;
+    }
+
+    .login-button, .register-button, .profile-button {
         padding: 10px 20px;
         border: none;
         color: #fff;
@@ -70,12 +79,12 @@
         cursor: pointer;
     }
 
-    .login-button {
+    .login-button, .register-button {
         background-color: #4CAF50; /* Yeşil renk */
     }
 
-    .register-button {
-        background-color: #4CAF50; /* Yeşil renk */
+    .profile-button {
+        background-color: #2196F3; /* Mavi renk */
     }
 
     .info-cards {
@@ -172,5 +181,10 @@
     private void NavigateToRegister()
     {
         NavigationManager.NavigateTo("/register");
+    }
+
+    private void NavigateToProfile()
+    {
+        NavigationManager.NavigateTo("/profile");
     }
 }
