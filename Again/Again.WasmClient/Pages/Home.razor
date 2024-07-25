@@ -9,7 +9,9 @@
             <button class="login-button" @onclick="NavigateToLogin">Giriş Yap</button>
             <button class="register-button" @onclick="NavigateToRegister">Kayıt Ol</button>
         </div>
-        <button class="profile-button" @onclick="NavigateToProfile">Profil</button>
+        <div class="right-button">
+            <button class="profile-button">Profil</button>
+        </div>
     </header>
 
     <main>
@@ -67,7 +69,6 @@
 
     .left-buttons {
         display: flex;
-        gap: 10px;
     }
 
     .login-button, .register-button, .profile-button {
@@ -77,9 +78,14 @@
         font-size: 16px;
         border-radius: 5px;
         cursor: pointer;
+        margin-right: 10px;
     }
 
-    .login-button, .register-button {
+    .login-button {
+        background-color: #4CAF50; /* Yeşil renk */
+    }
+
+    .register-button {
         background-color: #4CAF50; /* Yeşil renk */
     }
 
@@ -102,6 +108,11 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         color: #fff;
         text-align: center;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .info-card:hover {
+        box-shadow: 0 0 20px 2px;
     }
 
     .card-green {
@@ -182,7 +193,6 @@
     {
         NavigationManager.NavigateTo("/register");
     }
-
     private void NavigateToProfile()
     {
         NavigationManager.NavigateTo("/profile");
