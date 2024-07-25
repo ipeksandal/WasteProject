@@ -10,27 +10,39 @@
             <button class="register-button" @onclick="NavigateToRegister">Kayıt Ol</button>
         </div>
         <div class="right-button">
-            <button class="profile-button">Profil</button>
+            <button class="profile-button" @onclick="NavigateToProfile">Profil</button>
         </div>
     </header>
 
     <main>
         <section class="info-cards">
-            <div class="info-card card-green">
+            <div class="info-card card-green" @onclick="() => ToggleInfoCard(1)">
                 <h3>Kağıt Geri Dönüşümü</h3>
-                <p>Kağıt ürünlerin geri dönüştürülmesi, ağaç kesimini azaltır ve enerji tasarrufu sağlar.</p>
+                @if (showCard1Info)
+                {
+                    <p>Kağıt ürünlerin geri dönüştürülmesi, ağaç kesimini azaltır ve enerji tasarrufu sağlar.</p>
+                }
             </div>
-            <div class="info-card card-blue">
+            <div class="info-card card-blue" @onclick="() => ToggleInfoCard(2)">
                 <h3>Plastik Geri Dönüşümü</h3>
-                <p>Plastik atıkların geri dönüştürülmesi çevre kirliliğini azaltır ve kaynak tasarrufu sağlar.</p>
+                @if (showCard2Info)
+                {
+                    <p>Plastik atıkların geri dönüştürülmesi çevre kirliliğini azaltır ve kaynak tasarrufu sağlar.</p>
+                }
             </div>
-            <div class="info-card card-yellow">
+            <div class="info-card card-yellow" @onclick="() => ToggleInfoCard(3)">
                 <h3>Cam Geri Dönüşümü</h3>
-                <p>Cam şişeler ve kavanozlar geri dönüştürülerek yeni cam ürünler elde edilir.</p>
+                @if (showCard3Info)
+                {
+                    <p>Cam şişeler ve kavanozlar geri dönüştürülerek yeni cam ürünler elde edilir.</p>
+                }
             </div>
-            <div class="info-card card-orange">
+            <div class="info-card card-orange" @onclick="() => ToggleInfoCard(4)">
                 <h3>Metal Geri Dönüşümü</h3>
-                <p>Metal atıkların geri dönüştürülmesi enerji tasarrufu sağlar ve çevre kirliliğini azaltır.</p>
+                @if (showCard4Info)
+                {
+                    <p>Metal atıkların geri dönüştürülmesi enerji tasarrufu sağlar ve çevre kirliliğini azaltır.</p>
+                }
             </div>
         </section>
 
@@ -109,6 +121,7 @@
         color: #fff;
         text-align: center;
         transition: box-shadow 0.3s ease;
+        cursor: pointer; /* Mouse pointer changes to hand */
     }
 
     .info-card:hover {
@@ -184,6 +197,30 @@
 </script>
 
 @code {
+    private bool showCard1Info;
+    private bool showCard2Info;
+    private bool showCard3Info;
+    private bool showCard4Info;
+
+    private void ToggleInfoCard(int cardNumber)
+    {
+        switch (cardNumber)
+        {
+            case 1:
+                showCard1Info = !showCard1Info;
+                break;
+            case 2:
+                showCard2Info = !showCard2Info;
+                break;
+            case 3:
+                showCard3Info = !showCard3Info;
+                break;
+            case 4:
+                showCard4Info = !showCard4Info;
+                break;
+        }
+    }
+
     private void NavigateToLogin()
     {
         NavigationManager.NavigateTo("/login");
@@ -193,6 +230,7 @@
     {
         NavigationManager.NavigateTo("/register");
     }
+
     private void NavigateToProfile()
     {
         NavigationManager.NavigateTo("/profile");
