@@ -9,5 +9,6 @@ public class ApplicationDbContext:DbContext
     {
         
     }
-    public DbSet<Waste> wastes { get; set; }
+    public DbSet<Waste> Wastes { get; set; }
+    public DbSet<Profile> Profiles { get; set; }
 }
