@@ -3,7 +3,8 @@
 <div class="profile-container">
     <div class="profile-card">
         <div class="profile-picture">
-            <img src="@profilePictureUrl" alt="Profil Resmi">
+            <img src="@GetProfilePictureUrl()" alt="Profil Resmi">
+            <button @onclick="EditProfilePicture" class="edit-picture-button">Düzenle</button>
         </div>
         <div class="profile-content">
             @if (!isEditing)
@@ -81,12 +82,28 @@
         border-radius: 50%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         margin: 0 auto 20px;
+        position: relative;
     }
 
     .profile-picture img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    .edit-picture-button {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        background-color: #4CAF50; /* Soft green button */
+        border: none;
+        color: white;
+        font-size: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
     }
 
     .profile-card h2 {
@@ -154,11 +171,22 @@
     private string email = "email@example.com";
     private string bio = "Kısa bir biyografi";
 
-    // Placeholder profile picture URL
-    private string profilePictureUrl = "https://via.placeholder.com/150";
+    // Kullanıcı profil resmi
+    private string profilePictureUrl = "/profile.png";
 
     private void ToggleEditMode()
     {
         isEditing = !isEditing;
+    }
+
+    private void EditProfilePicture()
+    {
+        // Profil fotoğrafı düzenleme işlemleri burada yapılacak
+    }
+
+    private string GetProfilePictureUrl()
+    {
+        // Kullanıcı fotoğrafı varsa onu, yoksa varsayılan fotoğrafı döndür
+        return string.IsNullOrEmpty(profilePictureUrl) ? "/profile.png" : profilePictureUrl;
     }
 }
