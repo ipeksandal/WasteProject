@@ -3,44 +3,46 @@
 <div class="profile-container">
     <div class="profile-card">
         <div class="profile-picture">
-            <img src="path-to-your-profile-picture.jpg" alt="Profil Resmi">
+            <img src="@profilePictureUrl" alt="Profil Resmi">
         </div>
-        @if (!isEditing)
-        {
-            <div class="profile-view">
-                <h2>Profil Bilgileri</h2>
-                <div class="profile-info">
-                    <p><strong>Kullanıcı Adı:</strong> <span>@username</span></p>
-                    <p><strong>Email:</strong> <span>@email</span></p>
-                    <p><strong>Biyografi:</strong> <span>@bio</span></p>
+        <div class="profile-content">
+            @if (!isEditing)
+            {
+                <div class="profile-view">
+                    <h2>Profil Bilgileri</h2>
+                    <div class="profile-info">
+                        <p><strong>Kullanıcı Adı:</strong> <span>@username</span></p>
+                        <p><strong>Email:</strong> <span>@email</span></p>
+                        <p><strong>Biyografi:</strong> <span>@bio</span></p>
+                    </div>
+                    <button @onclick="ToggleEditMode" class="edit-button">Düzenle</button>
                 </div>
-                <button @onclick="ToggleEditMode" class="edit-button">Düzenle</button>
-            </div>
-        }
-        else
-        {
-            <div class="profile-edit">
-                <h2>Profil Düzenle</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="username">Kullanıcı Adı</label>
-                        <input type="text" id="username" class="form-control" @bind="@username">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" @bind="@email">
-                    </div>
-                    <div class="form-group">
-                        <label for="bio">Biyografi</label>
-                        <textarea id="bio" class="form-control" @bind="@bio"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="save-button">Bilgileri Güncelle</button>
-                    </div>
-                </form>
-                <button @onclick="ToggleEditMode" class="cancel-button">İptal</button>
-            </div>
-        }
+            }
+            else
+            {
+                <div class="profile-edit">
+                    <h2>Profil Düzenle</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Kullanıcı Adı</label>
+                            <input type="text" id="username" class="form-control" @bind="@username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" @bind="@email">
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Biyografi</label>
+                            <textarea id="bio" class="form-control" @bind="@bio"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="save-button">Bilgileri Güncelle</button>
+                        </div>
+                    </form>
+                    <button @onclick="ToggleEditMode" class="cancel-button">İptal</button>
+                </div>
+            }
+        </div>
     </div>
 </div>
 
@@ -51,7 +53,7 @@
         width: 100%;
         height: 100%;
         font-family: Arial, sans-serif;
-        background-color: #f0f4f8; /* Soft light background */
+        background-color: #e0f7fa; /* Soft light blue background */
     }
 
     .profile-container {
@@ -67,20 +69,18 @@
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 300px;
-        border: 2px solid #d0e4f1; /* Soft blue border */
+        width: 350px;
+        border: 2px solid #b2dfdb; /* Soft green border */
         text-align: center;
     }
 
     .profile-picture {
-        position: absolute;
-        top: 20px;
-        left: 20px;
         width: 150px;
         height: 150px;
         overflow: hidden;
         border-radius: 50%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 0 auto 20px;
     }
 
     .profile-picture img {
@@ -90,9 +90,8 @@
     }
 
     .profile-card h2 {
-        margin-top: 180px;
         margin-bottom: 20px;
-        color: #2a4d69; /* Soft blue text color */
+        color: #00695c; /* Soft green text color */
     }
 
     .profile-info p {
@@ -102,7 +101,7 @@
     .edit-button, .cancel-button {
         width: 100%;
         padding: 10px;
-        background-color: #4C9EFF; /* Soft blue button */
+        background-color: #4CAF50; /* Soft green button */
         border: none;
         color: white;
         font-size: 16px;
@@ -112,7 +111,7 @@
     }
 
     .edit-button:hover, .cancel-button:hover {
-        background-color: #3b8dd1;
+        background-color: #388e3c;
     }
 
     .form-group {
@@ -136,7 +135,7 @@
     .save-button {
         width: 100%;
         padding: 10px;
-        background-color: #4C9EFF; /* Soft blue button */
+        background-color: #4CAF50; /* Soft green button */
         border: none;
         color: white;
         font-size: 16px;
@@ -145,7 +144,7 @@
     }
 
     .save-button:hover {
-        background-color: #3b8dd1;
+        background-color: #388e3c;
     }
 </style>
 
@@ -154,6 +153,9 @@
     private string username = "Kullanıcı Adı";
     private string email = "email@example.com";
     private string bio = "Kısa bir biyografi";
+
+    // Placeholder profile picture URL
+    private string profilePictureUrl = "https://via.placeholder.com/150";
 
     private void ToggleEditMode()
     {
