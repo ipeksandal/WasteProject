@@ -66,9 +66,10 @@
 
     .profile-container {
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
         position: absolute;
         top: 0;
         left: 0;
@@ -185,14 +186,14 @@
 
 @code {
     private bool isEditing = false;
-    private string username = "Kullanıcı Adı";
-    private string email = "email@example.com";
-    private string bio = "Kısa bir biyografi";
+    private string username = "Yeni Kullanıcı Adı";
+    private string email = "yeniemail@example.com";
+    private string bio = "Bu yeni biyografi içeriğidir.";
 
-    private int paperRecycled = 500;  // Örnek veri
-    private int plasticRecycled = 300;  // Örnek veri
-    private int glassRecycled = 200;  // Örnek veri
-    private int metalRecycled = 100;  // Örnek veri
+    private int paperRecycled = 600;  // Güncellenmiş örnek veri
+    private int plasticRecycled = 400;  // Güncellenmiş örnek veri
+    private int glassRecycled = 300;  // Güncellenmiş örnek veri
+    private int metalRecycled = 150;  // Güncellenmiş örnek veri
 
     private void ToggleEditMode()
     {
