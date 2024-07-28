@@ -46,10 +46,56 @@
             </div>
         </section>
 
-        <!-- Grafik bölümü -->
         <section class="stats">
             <h2>Geri Dönüşüm İstatistikleri</h2>
             <canvas id="recyclingChart"></canvas>
+        </section>
+
+        <!-- Yeni Eklenen Bölümler -->
+        <section class="benefits">
+            <h2>Geri Dönüşümün Faydaları</h2>
+            <p>Geri dönüşüm, doğal kaynakların korunmasına, enerji tasarrufuna ve çevre kirliliğinin azaltılmasına yardımcı olur.</p>
+            <ul>
+                <li>Doğal kaynakların korunması</li>
+                <li>Enerji tasarrufu</li>
+                <li>Çevre kirliliğinin azaltılması</li>
+                <li>İş imkanlarının yaratılması</li>
+            </ul>
+        </section>
+
+        <section class="faq">
+            <h2>Sıkça Sorulan Sorular</h2>
+            <div class="faq-item">
+                <h3>Geri dönüşüm nedir?</h3>
+                <p>Geri dönüşüm, atık materyallerin yeniden işlenerek kullanılması sürecidir.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Geri dönüşüm neden önemlidir?</h3>
+                <p>Geri dönüşüm, çevre kirliliğini azaltır, doğal kaynakları korur ve enerji tasarrufu sağlar.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Hangi materyaller geri dönüştürülebilir?</h3>
+                <p>Kağıt, plastik, cam, metal gibi birçok materyal geri dönüştürülebilir.</p>
+            </div>
+        </section>
+
+        <section class="contact">
+            <h2>İletişim</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Adınız:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit">Gönder</button>
+            </form>
         </section>
     </main>
 </div>
@@ -152,6 +198,65 @@
     #recyclingChart {
         max-width: 800px;
         margin: 0 auto;
+    }
+
+    .benefits, .faq, .contact {
+        padding: 20px;
+        background: #ffffff;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefits h2, .faq h2, .contact h2 {
+        margin-bottom: 10px;
+    }
+
+    .faq-item {
+        margin-bottom: 10px;
+    }
+
+    .faq-item h3 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .faq-item p {
+        margin: 5px 0 0;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        height: 100px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        border: none;
+        color: #fff;
+        background-color: #4CAF50; /* Yeşil renk */
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
     }
 </style>
 
