@@ -101,13 +101,14 @@
         width: 100%;
         height: 100%;
         font-family: Arial, sans-serif;
+        background-color: #000; /* Arka plan rengini siyah yap */
     }
 
     .container {
         display: flex;
         flex-direction: column;
         height: 100vh;
-        background: #f0f0f0; /* Arka plan rengi */
+        background: #f0f0f0; /* İçerik arka plan rengi */
     }
 
     header {
@@ -260,10 +261,16 @@
             data: {
                 labels: ['Kağıt', 'Plastik', 'Cam', 'Metal'],
                 datasets: [{
-                    label: 'Geri Dönüşüm Oranları (%)',
-                    data: [70, 50, 90, 60],
+                    label: 'Geri Dönüştürülen Miktar (ton)',
+                    data: [12, 19, 3, 5],
                     backgroundColor: [
                         '#81c784',
+                        '#64b5f6',
+                        '#fdd835',
+                        '#ffb74d'
+                    ],
+                    borderColor: [
+                        '#66bb6a',
                         '#64b5f6',
                         '#fdd835',
                         '#ffb74d'
