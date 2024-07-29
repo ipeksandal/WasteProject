@@ -51,8 +51,7 @@
             <canvas id="recyclingChart"></canvas>
         </section>
 
-        <!-- Yeni Eklenen Bölümler -->
-        <section class="benefits">
+        <section class="benefits soft-background">
             <h2>Geri Dönüşümün Faydaları</h2>
             <p>Geri dönüşüm, doğal kaynakların korunmasına, enerji tasarrufuna ve çevre kirliliğinin azaltılmasına yardımcı olur.</p>
             <ul>
@@ -202,10 +201,13 @@
 
     .benefits, .faq, .contact {
         padding: 20px;
-        background: #ffffff;
         margin: 20px 0;
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefits {
+        background-color: #e1bee7; /* Soft mor */
     }
 
     .benefits h2, .faq h2, .contact h2 {
@@ -269,19 +271,13 @@
             data: {
                 labels: ['Kağıt', 'Plastik', 'Cam', 'Metal'],
                 datasets: [{
-                    label: 'Geri Dönüşüm Miktarı (ton)',
-                    data: [500, 300, 200, 100], // Örnek veriler
+                    label: 'Geri Dönüşüm Oranları (%)',
+                    data: [70, 50, 90, 60],
                     backgroundColor: [
-                        '#81c784', // Soft yeşil
-                        '#64b5f6', // Soft mavi
-                        '#fdd835', // Soft sarı
-                        '#ffb74d'  // Soft turuncu
-                    ],
-                    borderColor: [
-                        '#4caf50', // Yeşil sınır
-                        '#2196f3', // Mavi sınır
-                        '#fbc02d', // Sarı sınır
-                        '#fb8c00'  // Turuncu sınır
+                        '#81c784',
+                        '#64b5f6',
+                        '#fdd835',
+                        '#ffb74d'
                     ],
                     borderWidth: 1
                 }]
@@ -295,17 +291,15 @@
             }
         });
     }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        initChart();
-    });
+
+    document.addEventListener('DOMContentLoaded', initChart);
 </script>
 
 @code {
-    private bool showCard1Info;
-    private bool showCard2Info;
-    private bool showCard3Info;
-    private bool showCard4Info;
+    private bool showCard1Info = false;
+    private bool showCard2Info = false;
+    private bool showCard3Info = false;
+    private bool showCard4Info = false;
 
     private void ToggleInfoCard(int cardNumber)
     {
