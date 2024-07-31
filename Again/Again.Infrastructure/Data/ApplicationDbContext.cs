@@ -12,6 +12,7 @@ namespace Again.Infrastructure.Data
 
         public DbSet<Waste> Wastes { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
