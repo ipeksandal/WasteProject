@@ -35,7 +35,7 @@ public class ProfileController:ControllerBase
 
         // PUT: api/Profile/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProfile(Guid id, Profile profile)
+        public async Task<IActionResult> PutProfile(User id, Profile profile)
         {
             if (id != profile.Id)
             {
@@ -89,7 +89,7 @@ public class ProfileController:ControllerBase
             return NoContent();
         }
 
-        private bool ProfileExists(Guid id)
+        private bool ProfileExists(User id)
         {
             return _context.Profiles.Any(e => e.Id == id);
         } 

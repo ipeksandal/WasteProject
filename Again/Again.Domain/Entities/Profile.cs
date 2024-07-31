@@ -2,9 +2,9 @@ namespace Again.Domain.Entities;
 
 public class Profile
 {
-    public Guid Id { get; set; }
-    public string UserName { get; set; }
-    public string Email { get; set; }
+    public User Id { get; set; }
+    public User UserName { get; set; }
+    public User Email { get; set; }
     public string Bio { get; set; }
     public int PaperRecycled { get; set; }
     public int GlassRecycled { get; set; }
