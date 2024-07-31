@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Again.WasmClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb513702d9b766775029e2d95f9c3284aae8e8be")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3581f8bef8078229b18a3ddbddbac412d2a3fb47")]
 [assembly: System.Reflection.AssemblyProductAttribute("Again.WasmClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Again.WasmClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
